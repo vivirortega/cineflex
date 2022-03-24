@@ -1,7 +1,9 @@
+import Header from "./components/header/header"
+
 export default function App() {
     return (
         <>
-        <h1>Teste</h1>
+        <Header />
         </>
     )
 }
