@@ -1,0 +1,23 @@
+.home {
+    display: flex;
+    justify-content: center;
+}
+
+.home-tittle {
+    font-size: 24px;
+    color: #293845;
+    margin-top: 67px;
+    margin-bottom: 67px;
+}
+
+.all-movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 46px;
+}
+
+.movie-poster{
+    width: 129px;
+    height: 193px;
+}
