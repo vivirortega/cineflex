@@ -1,0 +1,10 @@
+seats {
+    display: flex;
+    justify-content: center;
+}
+
+.seats-title {
+    font-size: 24px;
+    color: #293845;
+    margin-top: 67px;
+}

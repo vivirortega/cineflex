@@ -1,0 +1,33 @@
+.movie-session {
+    display: flex;
+    justify-content: center;
+}
+
+.movie-title {
+    font-size: 24px;
+    color: #293845;
+    margin-top: 67px;
+    margin-bottom: 67px;    
+}
+
+.movie-time {
+    background-color: #E8833A;
+    color:#FFFFFF;
+    width: 83px;
+    height: 43px;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+    font-size: 18px;
+    line-height: 21px;
+    border: none;
+    margin-left: 24px;
+}
+
+.movie-date {
+    color: #293845;
+    font-size: 20px;
+    line-height: 23px;
+    margin-bottom: 22px;
+    margin-left: 24px;
+    margin-top: 23px;
+}
