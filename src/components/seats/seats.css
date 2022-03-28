@@ -1,10 +1,98 @@
-seats {
+.seats {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .seats-title {
     font-size: 24px;
     color: #293845;
     margin-top: 67px;
+}
+
+input {
+    width: 327px;
+    height: 51px;
+    border: 1px solid #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.seat-confirmation {
+    width: 225px;
+    height: 42px;
+    background-color: #E8833A;
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-size: 18px;
+    border: none;
+    margin-top: 57px;
+}
+
+.seats-number {
+    background-color: #C3CFD9;
+    border: 1px solid #808F9D;
+    box-sizing: border-box;
+    border-radius: 12px;
+    width: 26px;
+    height: 26px;
+    color: #000000;
+    font-size: 11px;
+
+}
+
+.all-seats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 30px;
+}
+
+.selected, .available, .unavailable {
+    width: 26px;
+    height: 26px;
+    border-radius: 12px;
+}
+
+.selected {
+    background-color: #8DD7CF;
+}
+
+.available {
+    background-color: #C3CFD9;
+}
+
+.unavailable {
+    background-color: #FBE192;
+}
+
+.seats-legend {
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.seat-selected, .seat-unavailable, .seat-available {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 41px;
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    line-height: 21px;
+    color: #293845;
+}
+
+.seats-input {
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+    gap: 7px;
 }
