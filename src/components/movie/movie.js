@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import "./movie.css"
+import Footer from '../footer/footer';
 import loading from "./../../assets/loading.gif";
 
 export default function Movie() {
@@ -43,6 +44,7 @@ export default function Movie() {
             </div>
             </div>
          ))}
+         <Footer url={session.posterURL} title={session.title}/>
        </> 
         
         )

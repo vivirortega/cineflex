@@ -1,13 +1,18 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Footer from '../footer/footer';
 import loading from "./../../assets/loading.gif";
 import "./seats.css";
 
 export default function Seats() {
     const [seat, setSeat] = useState({ seats: [] });
     const { idSessao } = useParams();
+    const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [CPF, setCPF] = useState("");
+   
 
     useEffect(() => {
         const requisition = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${idSessao}/seats`);
@@ -18,6 +23,23 @@ export default function Seats() {
         });
         requisition.catch(error => console.log(error.response));
         }, []);
+    
+
+    function buyTicket(event) {
+        event.preventDefault();
+
+        const data = {
+            name: name,
+            cpf: CPF
+        }
+
+            const requisition = axios.post("https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many", data);
+            console.log(name + CPF);
+            requisition.then(() => {
+             navigate("/sucesso");
+         });    
+         requisition.catch(error => console.log(error.response));
+        }
 
     return (
         <div className="seats">
@@ -25,9 +47,7 @@ export default function Seats() {
         <div className="all-seats">
         {seat.seats.map(({name, id}) =>  {
             return (
-                
-                <button className="seats-number">{name}</button>
-                
+                <button className="seats-number" key={id}>{name}</button>
             )
         })}
         </div>
@@ -46,14 +66,17 @@ export default function Seats() {
             <p>Indisponível</p>
             </div>
         </div>
-        <div className="seats-input">
+        <form className="seats-input">
         <label>Nome do comprador:</label>
-        <input type="text" placeholder="Digite seu nome..."></input>
+        <input type="text" placeholder="Digite seu nome..." required value={name} onChange={e => setName(e.target.value)}></input>
         <label>CPF do comprador:</label>
-        <input type="number" placeholder="Digite seu CPF..."></input>
-        </div>
+        <input type="number" placeholder="Digite seu CPF..." required value={CPF} onChange={e => setCPF(e.target.value)}></input>
+        </form>
         
-        <button className="seat-confirmation">Reservar assentos(s)</button>
+        <button className="seat-confirmation" onClick={buyTicket}>Reservar assentos(s)</button>
+
+    
+        <Footer url={seat.movie.posterURL} title={seat.movie.title} weekday={seat.day.weekday} date={seat.name}/>
         
         </div>
     )
